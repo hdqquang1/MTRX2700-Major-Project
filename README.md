@@ -1,6 +1,5 @@
-# MTRX2700 Major Project
 # MTRX2700 Mechatronics 2
-# Lab 2: Programming a microcontroller in C
+# Major Project
 
 ## Role allocations:
 - Omar Abdulahlim [530281373]

@@ -30,6 +30,7 @@
 #include "initialise.h"
 #include "serial.h"
 #include "timers.h"
+#include "headsUp.h"
 /* USER CODE END Includes */
 
 uint8_t timesUp = 0;
@@ -63,12 +64,27 @@ int main(void)
 
 	uint8_t outcome;
 
+	srand(time(NULL));  // Seed the random number generator once
+
 	while (1){
 
 		trigger_oneshot(30000, &set_timesUp);
+		sprintf(string_to_send, "Timer starts now!\r\n");
+		SerialOutputString(string_to_send, &USART1_PORT);
+
+		uint8_t score = 0;
 
 		while (timesUp == 0) {
+
 			outcome = 0;
+
+
+			uint8_t guessWord[20];
+			char* random = randomWord();
+			strcpy((char*)guessWord, random);
+
+			sprintf(string_to_send, "%s\r\n", (char*)guessWord);
+			SerialOutputString(string_to_send, &USART1_PORT);
 
 			while (!outcome){
 				BSP_GYRO_GetXYZ(&gyro_values[0]);
@@ -78,20 +94,23 @@ int main(void)
 				if (gyro_values[1]/20000 <= -25){
 					outcome = 2;
 				}
+				HAL_Delay(100);
 			}
 
 			if (outcome == 1){
+				score++;
 				sprintf(string_to_send, "Correct!\r\n");
 				SerialOutputString(string_to_send, &USART1_PORT);
+				flash_leds();
 			}
 			else if (outcome == 2){
 				sprintf(string_to_send, "Pass!\r\n");
 				SerialOutputString(string_to_send, &USART1_PORT);
 			}
-			HAL_Delay(500);
+			HAL_Delay(750);
 		}
 
-		sprintf(string_to_send, "Time's Up!\r\n");
+		sprintf(string_to_send, "Time's Up! Your score is %d!\r\n", score);
 		SerialOutputString(string_to_send, &USART1_PORT);
 
 		for(;;){}

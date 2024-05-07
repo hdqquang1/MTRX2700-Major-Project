@@ -1,0 +1,7 @@
+../Core/Src/initialise.c:21:6:initialise_board	1
+../Core/Src/initialise.c:48:6:SystemClock_Config	4
+../Core/Src/initialise.c:93:13:MX_I2C1_Init	4
+../Core/Src/initialise.c:125:13:MX_SPI1_Init	2
+../Core/Src/initialise.c:149:13:MX_USB_PCD_Init	2
+../Core/Src/initialise.c:164:13:MX_GPIO_Init	1
+../Core/Src/initialise.c:207:6:Error_Handler	1

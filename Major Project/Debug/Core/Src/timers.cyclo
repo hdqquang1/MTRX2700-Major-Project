@@ -1,0 +1,5 @@
+../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+../Drivers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	2
+../Core/Src/timers.c:11:6:enable_interrupt	1
+../Core/Src/timers.c:24:6:TIM2_IRQHandler	3
+../Core/Src/timers.c:39:6:trigger_oneshot	1

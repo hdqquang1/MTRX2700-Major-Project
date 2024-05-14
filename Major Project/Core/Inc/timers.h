@@ -9,8 +9,12 @@
 // input: interrupt to enable and priority
 void enable_interrupt(IRQn_Type IRQn, uint32_t priority);
 
-// trigger_oneshot: trigger the callback function once after the input delay
-//Input: delay in millisecond, pointer to the callback function
-void trigger_oneshot(uint16_t delay, void (*callback_function)());
+// game_timer: timing of each round of the game
+// input: time in millisecond, pointer to the callback function
+void game_timer(uint16_t time, void (*callback_function)());
+
+// delay: delay for a period of time
+// input: time in millisecond
+void delay(uint16_t delay);
 
 #endif

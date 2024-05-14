@@ -2,11 +2,10 @@
 #include <stdio.h>
 #include "stm32f303xc.h"
 
-#define PRESCALER 7999
-#define HAL_MULTIPLY_FACTOR 6
+#define PRESCALER 47999
 
-// pointer to callback function for oneshot timer
-void (*oneshot_callback_function)();
+// pointers to callback functions
+void (*TIM2_callback_function)();
 
 void enable_interrupt(IRQn_Type IRQn, uint32_t priority) {
 	// Disable the interrupts while messing around with the settings
@@ -27,16 +26,16 @@ void TIM2_IRQHandler(){
 		// clear oneshot timer interrupt
 		TIM2->SR &= ~TIM_SR_UIF;
 
-		if (oneshot_callback_function != NULL)
+		if (TIM2_callback_function != NULL)
 		{
-			oneshot_callback_function();
+			TIM2_callback_function();
 		}
 
 	}
 
 }
 
-void trigger_oneshot(uint16_t delay, void (*callback_function)()) {
+void game_timer(uint16_t time, void (*callback_function)()) {
 
 	// reset CR1
 	TIM2->CR1 = 0x00;
@@ -45,8 +44,8 @@ void trigger_oneshot(uint16_t delay, void (*callback_function)()) {
 	TIM2->PSC = PRESCALER; // 1 millisecond or 1 millisecond per count
 
 	// set the auto reload according to the prescaler
-	TIM2->ARR = 0x01; // 8 - 1 millisecond
-	TIM2->ARR = TIM2->ARR * delay * HAL_MULTIPLY_FACTOR; // delay in millisecond
+	TIM2->ARR = 0x01; // 1 - 1 millisecond
+	TIM2->ARR = TIM2->ARR * time; // delay in millisecond
 	TIM2->CR1 |= TIM_CR1_ARPE; // enable auto reload buffering
 
 	// set to only counter overflow raises interrupt flag
@@ -64,11 +63,32 @@ void trigger_oneshot(uint16_t delay, void (*callback_function)()) {
 	// clear the interrupt
 	TIM2->SR &= ~TIM_SR_UIF;
 
-	oneshot_callback_function = callback_function;
+	TIM2_callback_function = callback_function;
 
 	enable_interrupt(TIM2_IRQn, 0);
 
 	// enable counter
 	TIM2->CR1 |= TIM_CR1_CEN;
 
+}
+
+void delay(uint16_t delay){
+	// reset CR1
+	TIM3->CR1 = 0x00;
+	TIM3->CNT = 0;
+
+	// set the prescaler to 999, slower than the default clock 1000 times
+	TIM3->PSC = PRESCALER; // 1 millisecond or 1 millisecond per count
+
+	// re-initialise the counter and generates an update of the registers
+	TIM3->EGR |= TIM_EGR_UG;
+
+	// enable counter
+	TIM3->CR1 |= TIM_CR1_CEN;
+
+	while (TIM3->CNT < delay) {};
+
+	// disable counter
+	TIM3->CR1 &= ~TIM_CR1_CEN;
+	TIM3->CNT = 0;
 }

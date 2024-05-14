@@ -4,8 +4,20 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define NUM_WORDS 100 // Total number of words in the array
+
 char* randomWord() {
-	char *words[] = {
+    static char* words[NUM_WORDS]; // Static array to store words
+    static int usedIndices[NUM_WORDS] = {0}; // Static array to track used indices
+    static int wordsCount = 0; // Count of words added to the array
+
+    // Check if all words have been used, reset if needed
+    if (wordsCount == NUM_WORDS) {
+        wordsCount = 0;
+        memset(usedIndices, 0, sizeof(usedIndices));
+    }
+
+	char *allWords[] = {
 	        "airplane", "boat", "baby", "ears", "scissors", "cough",
 	        "cold", "phone", "laugh", "blink", "hairbrush", "sneeze",
 	        "spin", "hammer", "book", "phone", "toothbrush", "jump",
@@ -24,9 +36,17 @@ char* randomWord() {
 	        "Drinking", "Typing", "Eating", "Having a snowball fight", "Playing the guitar",
 	        "Surfing", "Yawning", "Playing golf", "Praying", "Brushing teeth",
 	        "Showering", "Meditating", "Singing"
-	    };
+	};
 
-    int numWords = sizeof(words) / sizeof(words[0]); // Calculate the number of words in the array
-    int randomIndex = rand() % numWords; // Generate a random index within the bounds of the array
-    return words[randomIndex]; // Return the randomly chosen word
+    int numWords = sizeof(allWords) / sizeof(allWords[0]); // Calculate the number of words in the array
+
+    int randomIndex;
+    do {
+        randomIndex = rand() % numWords; // Generate a random index within the bounds of the array
+    } while (usedIndices[randomIndex]); // Check if the word at this index has been used
+
+    usedIndices[randomIndex] = 1; // Mark this index as used
+    words[wordsCount++] = allWords[randomIndex]; // Add the word to the array
+
+    return words[wordsCount - 1]; // Return the last added word
 }

@@ -64,7 +64,6 @@ int main(void)
 	uint8_t rounds = 1;
 	uint8_t outcome;
 	uint8_t winner;
-	uint8_t finalWinner;
 	uint8_t multiplier;
 	uint8_t P1leaderboard;
 	uint8_t P2leaderboard;

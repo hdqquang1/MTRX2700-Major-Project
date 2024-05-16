@@ -54,6 +54,21 @@ SerialPort USART1_PORT = {&(USART1->BRR),
 		((uint8_t*)&(GPIOC->AFR[0])) + 2,
 		0x77};
 
+SerialPort UART4_PORT = {&(UART4->BRR),
+		&(UART4->CR1),
+		&(UART4->ICR),
+		&(UART4->ISR),
+		&(UART4->TDR),
+		&(UART4->RDR),
+		&(RCC->APB1ENR),
+		RCC_APB1ENR_UART4EN,
+		SERIAL_GPIO_C,
+		&(GPIOC->MODER),
+		0xA00000,
+		&(GPIOC->OSPEEDR),
+		0xF00000,
+		((uint8_t*)&(GPIOC->AFR[1])) + 1,
+		0x55};
 
 // InitialiseSerial - Initialise the serial port
 // Input: baudRate is from an enumerated set
@@ -90,20 +105,16 @@ void SerialInitialise(uint32_t baudRate, SerialPort *serial_port, void (*complet
 	// Baud rate calculation from datasheet
 	switch(baudRate){
 	case BAUD_9600:
-		// NEED TO FIX THIS !
-		*baud_rate_config = 0x46;  // 115200 at 8MHz
+		*baud_rate_config = 0x341 * 0x06; // 9600 at 8MHz
 		break;
 	case BAUD_19200:
-		// NEED TO FIX THIS !
-		*baud_rate_config = 0x46;  // 115200 at 8MHz
+		*baud_rate_config = 0x1A1 * 0x06; // 19200 at 8MHz
 		break;
 	case BAUD_38400:
-		// NEED TO FIX THIS !
-		*baud_rate_config = 0x46;  // 115200 at 8MHz
+		*baud_rate_config = 0xD0 * 0x06;  // 38400 at 8MHz
 		break;
 	case BAUD_57600:
-		// NEED TO FIX THIS !
-		*baud_rate_config = 0x46;  // 115200 at 8MHz
+		*baud_rate_config = 0x8B * 0x06;  // 57600 at 8MHz
 		break;
 	case BAUD_115200:
 		*baud_rate_config = 0x46 * 0x06;  // 115200 at 8MHz
@@ -229,3 +240,38 @@ uint16_t SerialInputDataPacket(uint8_t *buffer, uint16_t length, SerialPort *ser
 
 }
 
+uint8_t SerialInputChar(SerialPort *serial_port)
+{
+	while (*(serial_port->StatusRegister) & USART_ISR_ORE || *(serial_port->StatusRegister) & USART_ISR_FE)
+	{
+		*(serial_port->FlagClearRegister) |= USART_ICR_ORECF | USART_ICR_FECF;
+	}
+
+	while((*(serial_port->StatusRegister) & USART_ISR_RXNE) == 0)	{};
+
+	//read in a character at a time and return it
+	uint8_t character = *(serial_port->DataInputRegister);
+	return character;
+}
+
+uint8_t* SerialInputString(uint8_t* buffer, uint32_t buffer_size, SerialPort *serial_port, uint8_t termination_char)
+{
+	//characters are only read until the buffer is full or a termination char is sent
+	uint32_t counter = 0;
+	for (uint32_t i = 0; i < buffer_size/sizeof(uint8_t); i++)
+	{
+		uint8_t character = SerialInputChar(serial_port);
+		buffer[i] = character;
+		counter++;
+		if (character == termination_char)
+		{
+			break;
+		}
+	}
+	//callback is called if not equal to NULL
+	if (serial_port->completion_function != 0x00)
+	{
+		serial_port->completion_function(counter);
+	}
+	return buffer;
+}

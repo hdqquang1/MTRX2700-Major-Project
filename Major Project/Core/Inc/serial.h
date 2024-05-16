@@ -13,6 +13,7 @@ typedef struct _SerialPort SerialPort;
 // make any number of instances of the serial port (they are extern because
 //   they are fixed, unique values)
 extern SerialPort USART1_PORT;
+extern SerialPort UART4_PORT;
 
 
 // The user might want to select the baud rate
@@ -56,5 +57,9 @@ uint16_t SerialInputPacketHeader(uint8_t *buffer, SerialPort *serial_port);
 // Input: char to be received
 // Returns 1 for success, 0 for timeout/failure
 uint16_t SerialInputDataPacket(uint8_t *buffer, uint16_t length, SerialPort *serial_port);
+
+uint8_t SerialInputChar(SerialPort *serial_port);
+
+uint8_t* SerialInputString(uint8_t* buffer, uint32_t buffer_size, SerialPort *serial_port, uint8_t termination_char);
 
 #endif

@@ -1,7 +1,9 @@
-../Core/Src/serial.c:60:6:SerialInitialise	32	static
-../Core/Src/serial.c:119:6:SerialOutputChar	16	static
-../Core/Src/serial.c:128:6:SerialOutputString	24	static
-../Core/Src/serial.c:143:9:SerialReceiveChar	24	static
-../Core/Src/serial.c:164:6:SerialOutputBuffer	32	static
-../Core/Src/serial.c:183:10:SerialInputPacketHeader	24	static
-../Core/Src/serial.c:215:10:SerialInputDataPacket	32	static
+../Core/Src/serial.c:75:6:SerialInitialise	32	static
+../Core/Src/serial.c:130:6:SerialOutputChar	16	static
+../Core/Src/serial.c:139:6:SerialOutputString	24	static
+../Core/Src/serial.c:154:9:SerialReceiveChar	24	static
+../Core/Src/serial.c:175:6:SerialOutputBuffer	32	static
+../Core/Src/serial.c:194:10:SerialInputPacketHeader	24	static
+../Core/Src/serial.c:226:10:SerialInputDataPacket	32	static
+../Core/Src/serial.c:243:9:SerialInputChar	24	static
+../Core/Src/serial.c:257:10:SerialInputString	40	static

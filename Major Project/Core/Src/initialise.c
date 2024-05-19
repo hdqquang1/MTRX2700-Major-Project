@@ -1,7 +1,8 @@
+#include "initialise.h"
+
 #include "main.h"
 #include "BSP/stm32f3_discovery.h"
 #include "BSP/stm32f3_discovery_gyroscope.h"
-#include "initialise.h"
 #include "serial.h"
 
 /* Private variables ---------------------------------------------------------*/
@@ -42,6 +43,7 @@ void initialise_board() {
   RCC->APB1ENR |=  RCC_APB1ENR_TIM3EN;
 
   SerialInitialise(BAUD_115200, &USART1_PORT, 0x00);
+  SerialInitialise(BAUD_115200, &UART4_PORT, 0x00);
 
   uint16_t *led_output_registers = ((uint16_t *)&(GPIOE->MODER)) + 1;
   *led_output_registers = 0x5555;

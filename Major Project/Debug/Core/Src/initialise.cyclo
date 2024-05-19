@@ -1,7 +1,7 @@
-../Core/Src/initialise.c:21:6:initialise_board	1
-../Core/Src/initialise.c:51:6:SystemClock_Config	4
-../Core/Src/initialise.c:96:13:MX_I2C1_Init	4
-../Core/Src/initialise.c:128:13:MX_SPI1_Init	2
-../Core/Src/initialise.c:152:13:MX_USB_PCD_Init	2
-../Core/Src/initialise.c:167:13:MX_GPIO_Init	1
-../Core/Src/initialise.c:210:6:Error_Handler	1
+../Core/Src/initialise.c:22:6:initialise_board	1
+../Core/Src/initialise.c:53:6:SystemClock_Config	4
+../Core/Src/initialise.c:98:13:MX_I2C1_Init	4
+../Core/Src/initialise.c:130:13:MX_SPI1_Init	2
+../Core/Src/initialise.c:154:13:MX_USB_PCD_Init	2
+../Core/Src/initialise.c:169:13:MX_GPIO_Init	1
+../Core/Src/initialise.c:212:6:Error_Handler	1

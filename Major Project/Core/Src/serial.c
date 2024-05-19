@@ -90,13 +90,13 @@ void SerialInitialise(uint32_t baudRate, SerialPort *serial_port, void (*complet
 	}
 
 	// set pin mode
-	*(serial_port->SerialPinModeRegister) = serial_port->SerialPinModeValue;
+	*(serial_port->SerialPinModeRegister) |= serial_port->SerialPinModeValue;
 
 	// enable high speed clock for GPIOC
-	*(serial_port->SerialPinSpeedRegister) = serial_port->SerialPinSpeedValue;
+	*(serial_port->SerialPinSpeedRegister) |= serial_port->SerialPinSpeedValue;
 
 	// set alternate function to enable USART to an external pin
-	*(serial_port->SerialPinAlternatePinRegister) = serial_port->SerialPinAlternatePinValue;
+	*(serial_port->SerialPinAlternatePinRegister) |= serial_port->SerialPinAlternatePinValue;
 
 	*(serial_port->TimerEnableRegister) |= serial_port->TimerEnableMask;
 

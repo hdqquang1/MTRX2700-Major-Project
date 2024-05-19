@@ -77,7 +77,7 @@ void headsUp(uint8_t *P1score, uint8_t *P2score){
 
 		sprintf(string_to_send, "Player %d your timer starts now!\r\n", i);
 		SerialOutputString(string_to_send, &USART1_PORT);
-		game_timer(30000, &set_timesUp);
+		game_timer(10000, &set_timesUp);
 
 		while (timesUp == 0) {
 			uint8_t outcome = 0;

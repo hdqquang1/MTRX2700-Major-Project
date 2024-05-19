@@ -39,6 +39,8 @@ int main(void)
 
 	uint8_t string_to_send[64] = "This is a string!\r\n";
 
+	srand(get_gyro_values());
+
 	uint8_t rounds = 1;
 	uint8_t winner;
 	uint8_t multiplier;

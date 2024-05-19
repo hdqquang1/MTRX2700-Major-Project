@@ -13,36 +13,34 @@
 #define NUM_WORDS 100 // Total number of words in the array
 
 char* randomWord() {
-    static char* words[NUM_WORDS]; // Static array to store words
+    static char *allWords[] = {
+        "airplane", "boat", "baby", "ears", "scissors", "cough",
+        "cold", "phone", "laugh", "blink", "hairbrush", "sneeze",
+        "spin", "hammer", "book", "phone", "toothbrush", "jump",
+        "clap", "slap", "archer", "ghost", "balance", "shoelaces", "sick",
+        "balloon", "banana peel", "monster", "hiccup", "stomp", "hurt", "hungry",
+        "slip", "karate", "ladder", "scare", "fishing", "dizzy", "read", "hot",
+        "birthday", "president", "apartment", "cradle", "coffee", "trampoline",
+        "waterfall", "window", "proud", "stuck-up", "flashlight", "marry",
+        "overwhelm", "judge", "shadow", "halo", "measure", "clown", "chomp",
+        "slither", "whale", "snake", "elephant", "giraffe", "dog", "cat", "ant",
+        "rabbit", "groundhog", "hyena", "kangaroo", "shark", "fish", "polar bear",
+        "caterpillar", "cockroach", "ram", "monkey", "jaguar", "rooster", "cycling",
+        "watching TV", "swimming", "running", "flying in a plane", "sleeping",
+        "flipping pancakes", "listening to music", "driving a car", "writing a letter",
+        "skiing", "giving a haircut", "drinking", "typing", "eating", "having a snowball fight",
+        "playing the guitar", "surfing", "yawning", "playing golf", "praying", "brushing teeth",
+        "showering", "meditating", "singing"
+    };
+
     static int usedIndices[NUM_WORDS] = {0}; // Static array to track used indices
-    static int wordsCount = 0; // Count of words added to the array
+    static int numUsed = 0; // Count of used words
 
-    // Check if all words have been used, reset if needed
-    if (wordsCount == NUM_WORDS) {
-        wordsCount = 0;
+    if (numUsed == NUM_WORDS) {
+        // If all words have been used, reset the usedIndices array
         memset(usedIndices, 0, sizeof(usedIndices));
+        numUsed = 0;
     }
-
-	char *allWords[] = {
-	        "airplane", "boat", "baby", "ears", "scissors", "cough",
-	        "cold", "phone", "laugh", "blink", "hairbrush", "sneeze",
-	        "spin", "hammer", "book", "phone", "toothbrush", "jump",
-	        "clap", "slap", "archer", "ghost", "balance", "shoelaces", "sick", "balloon",
-	        "banana peel", "monster", "hiccup", "stomp", "hurt", "hungry",
-	        "slip", "karate", "ladder", "scare", "fishing", "dizzy",
-	        "read", "hot", "birthday", "president", "apartment", "cradle", "coffee", "trampoline",
-	        "waterfall", "window", "proud", "stuck-up", "flashlight", "marry",
-	        "overwhelm", "judge", "shadow", "halo", "measure", "clown",
-	        "chomp", "slither", "Whale", "Snake", "Elephant", "Giraffe", "Dog", "Cat",
-	        "Ant", "Rabbit", "Groundhog", "Hyena", "Kangaroo", "Shark",
-	        "Fish", "Polar Bear", "Caterpillar", "Cockroach", "Ram", "Monkey",
-	        "Jaguar", "Rooster", "Cycling", "Watching TV", "Swimming", "Running",
-	        "Flying in a plane", "Sleeping", "Flipping pancakes", "Listening to music",
-	        "Driving a car", "Writing a letter", "Skiing", "Giving a haircut",
-	        "Drinking", "Typing", "Eating", "Having a snowball fight", "Playing the guitar",
-	        "Surfing", "Yawning", "Playing golf", "Praying", "Brushing teeth",
-	        "Showering", "Meditating", "Singing"
-	};
 
     int numWords = sizeof(allWords) / sizeof(allWords[0]); // Calculate the number of words in the array
 
@@ -52,9 +50,9 @@ char* randomWord() {
     } while (usedIndices[randomIndex]); // Check if the word at this index has been used
 
     usedIndices[randomIndex] = 1; // Mark this index as used
-    words[wordsCount++] = allWords[randomIndex]; // Add the word to the array
+    numUsed++; // Increment the count of used words
 
-    return words[wordsCount - 1]; // Return the last added word
+    return allWords[randomIndex]; // Return the randomly chosen word
 }
 
 uint8_t timesUp = 0;
@@ -81,6 +79,7 @@ void headsUp(uint8_t *P1score, uint8_t *P2score){
 
 		while (timesUp == 0) {
 			uint8_t outcome = 0;
+
 
 			uint8_t guessWord[20];
 			char* random = randomWord();

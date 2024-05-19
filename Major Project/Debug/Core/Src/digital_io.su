@@ -1,0 +1,4 @@
+../Core/Src/digital_io.c:14:6:set_leds	24	static
+../Core/Src/digital_io.c:24:6:correct_leds	8	static
+../Core/Src/digital_io.c:35:6:incorrect_leds	8	static
+../Core/Src/digital_io.c:46:6:end_leds	8	static

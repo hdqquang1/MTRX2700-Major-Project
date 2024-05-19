@@ -24,9 +24,9 @@ NILL
 
 ## Minutes:
 
-- 3D print the case for the STM32 and the wavelength game
-- Work on the overall headsup module, ensuring serial works
-- Look into ways to display the game through GUI
+- Finalise the design of the stages of the game into heads up, wavelength and roulette
+- Understood how to communicate the overall headsup module, ensuring serial works
+- Looked into ways to display the game through GUI
 
 ## Current Action Items:
 

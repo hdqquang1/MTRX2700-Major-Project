@@ -75,12 +75,13 @@ void headsUp(uint8_t *P1score, uint8_t *P2score){
 	for (int i = 1; i <= 2; i++) {
 		uint8_t Pscore = 0;
 
-		game_timer(30000, &set_timesUp);
 		sprintf(string_to_send, "Player %d your timer starts now!\r\n", i);
 		SerialOutputString(string_to_send, &USART1_PORT);
+		game_timer(30000, &set_timesUp);
 
 		while (timesUp == 0) {
 			uint8_t outcome = 0;
+
 
 			uint8_t guessWord[20];
 			char* random = randomWord();
@@ -94,6 +95,10 @@ void headsUp(uint8_t *P1score, uint8_t *P2score){
 				}
 				if (get_gyro_values() <= -25){
 					outcome = 2;
+				}
+				if (timesUp){
+					outcome = 0;
+					break;
 				}
 				delay(100);
 			}
@@ -109,6 +114,9 @@ void headsUp(uint8_t *P1score, uint8_t *P2score){
 				SerialOutputString(string_to_send, &USART1_PORT);
 				incorrect_leds();
 			}
+			else{
+				break;
+			}
 		}
 		sprintf(string_to_send, "Time's Up! Player %d's score is %d!\r\n", i, Pscore);
 		SerialOutputString(string_to_send, &USART1_PORT);
@@ -122,6 +130,10 @@ void headsUp(uint8_t *P1score, uint8_t *P2score){
 		}
 		else {
 			*P2score = Pscore;
+			sprintf(string_to_send, "Press to continue\r\n");
+			SerialOutputString(string_to_send, &USART1_PORT);
+			while ((GPIOA->IDR & 0x01) == 0) {}
+			set_timesUp();
 		}
 	}
 }

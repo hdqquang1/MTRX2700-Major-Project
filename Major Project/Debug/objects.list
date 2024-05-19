@@ -3,6 +3,7 @@
 "./Core/Src/headsUp.o"
 "./Core/Src/initialise.o"
 "./Core/Src/main.o"
+"./Core/Src/roulette.o"
 "./Core/Src/serial.o"
 "./Core/Src/serialise.o"
 "./Core/Src/stm32f3xx_hal_msp.o"

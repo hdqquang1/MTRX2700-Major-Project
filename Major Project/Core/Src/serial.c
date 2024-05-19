@@ -275,3 +275,4 @@ uint8_t* SerialInputString(uint8_t* buffer, uint32_t buffer_size, SerialPort *se
 	}
 	return buffer;
 }
+

@@ -1,4 +1,6 @@
 ../Core/Src/digital_io.c:14:6:set_leds	1
-../Core/Src/digital_io.c:24:6:correct_leds	1
-../Core/Src/digital_io.c:35:6:incorrect_leds	1
-../Core/Src/digital_io.c:46:6:end_leds	1
+../Core/Src/digital_io.c:24:9:get_leds	1
+../Core/Src/digital_io.c:29:6:correct_leds	1
+../Core/Src/digital_io.c:40:6:incorrect_leds	1
+../Core/Src/digital_io.c:51:6:end_leds	1
+../Core/Src/digital_io.c:62:6:chase_leds	2

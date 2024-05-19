@@ -41,7 +41,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/i3g4250d/../Common/gyro.h \
  ../Core/Inc/serial.h \
  ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h \
- ../Core/Inc/timers.h
+ ../Core/Inc/timers.h ../Core/Inc/roulette.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
@@ -88,3 +88,4 @@ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Seme
 ../Core/Inc/serial.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h:
 ../Core/Inc/timers.h:
+../Core/Inc/roulette.h:

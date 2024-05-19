@@ -21,7 +21,12 @@ void set_leds(uint8_t led_mask_pattern)
 	}
 }
 
-void correct_leds() {
+uint8_t get_leds(void){
+	uint8_t *led_register = ((uint8_t*)&(GPIOE->ODR)) + 1;
+	return *led_register;
+}
+
+void correct_leds(void){
     // Turn on LEDs
     set_leds(CORRECT);
 
@@ -32,7 +37,7 @@ void correct_leds() {
     set_leds(0);
 }
 
-void incorrect_leds() {
+void incorrect_leds(void){
     // Turn on LEDs
     set_leds(INCORRECT);
 
@@ -43,7 +48,7 @@ void incorrect_leds() {
     set_leds(0);
 }
 
-void end_leds(){
+void end_leds(void){
 	 // Turn on LEDs
 	set_leds(CORRECT);
 
@@ -52,4 +57,12 @@ void end_leds(){
 
 	// Turn off LEDs
 	 set_leds(0);
+}
+
+void chase_leds(void){
+	uint8_t mask = get_leds() << 1;
+	set_leds(mask);
+	if (get_leds() == 0) {
+		set_leds(1);
+	}
 }

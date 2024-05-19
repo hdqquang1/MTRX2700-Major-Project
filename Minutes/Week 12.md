@@ -1,4 +1,4 @@
-### ﻿Date: 14/04/2023
+### ﻿Date: 14/05/2023
 ### Time: 14:00 - 17:00
 ### Location: Mechatronics Lab
 
@@ -24,12 +24,15 @@ NILL
 
 ## Minutes:
 
-- Allocated tasks into three seperate modules / responsibilities
-- Lucas, Quang and Omar works on the Heads up game
-- Lovedale works on the Wavelength game
-- Jayden works on the timer component
-- We had our project checked and approved by tutors
+- LED display has been coded for the heads up game
+- Gyro is working for the heads up
+- GUI has begun in progress
+- Servos on the wavelength game are working based on user input
+- Lucas and Lovedale's 3D prints have been made
 
 ## Current Action Items:
 
-- All members continue to work on their parts, and ensure open communication of progress and challenges
+- Lucas works on the roulette led wheel design
+- Jayden continues with GUI design and visual interface
+- Omar and Quang works on refining the Heads up game, as well as refining the serial ports and main menu items for heads up
+- Lovedale works on the design of the wavelength game and code 

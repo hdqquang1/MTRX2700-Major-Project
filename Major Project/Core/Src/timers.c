@@ -1,6 +1,8 @@
-#include <timers.h>
 #include <stdio.h>
+#include <stdint.h>
+
 #include "stm32f303xc.h"
+#include "timers.h"
 
 #define PRESCALER 47999
 

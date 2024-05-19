@@ -1,1 +1,3 @@
-../Core/Src/headsUp.c:9:7:randomWord	3
+../Core/Src/headsUp.c:15:7:randomWord	3
+../Core/Src/headsUp.c:62:6:set_timesUp	2
+../Core/Src/headsUp.c:71:6:headsUp	10

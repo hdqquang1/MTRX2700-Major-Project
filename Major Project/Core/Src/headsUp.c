@@ -4,6 +4,12 @@
 #include <stdlib.h>
 #include <time.h>
 
+#include "digital_io.h"
+#include "gyroscope.h"
+#include "serial.h"
+#include "stm32f303xc.h"
+#include "timers.h"
+
 #define NUM_WORDS 100 // Total number of words in the array
 
 char* randomWord() {
@@ -49,4 +55,73 @@ char* randomWord() {
     words[wordsCount++] = allWords[randomIndex]; // Add the word to the array
 
     return words[wordsCount - 1]; // Return the last added word
+}
+
+uint8_t timesUp = 0;
+
+void set_timesUp(){
+    if (timesUp == 0) {
+        timesUp = 1;
+    }
+    else {
+        timesUp = 0;
+    }
+}
+
+void headsUp(uint8_t *P1score, uint8_t *P2score){
+
+	uint8_t string_to_send[64] = "This is a string !\r\n";
+
+	for (int i = 1; i <= 2; i++) {
+		uint8_t Pscore = 0;
+
+		game_timer(30000, &set_timesUp);
+		sprintf(string_to_send, "Player %d your timer starts now!\r\n", i);
+		SerialOutputString(string_to_send, &USART1_PORT);
+
+		while (timesUp == 0) {
+			uint8_t outcome = 0;
+
+			uint8_t guessWord[20];
+			char* random = randomWord();
+			strcpy((char*)guessWord, random);
+			sprintf(string_to_send, "%s\r\n", (char*)guessWord);
+			SerialOutputString(string_to_send, &USART1_PORT);
+
+			while (!outcome){
+				if (get_gyro_values() >= 25){
+					outcome = 1;
+				}
+				if (get_gyro_values() <= -25){
+					outcome = 2;
+				}
+				delay(100);
+			}
+
+			if (outcome == 1){
+				Pscore++;
+				sprintf(string_to_send, "Correct!\r\n");
+				SerialOutputString(string_to_send, &USART1_PORT);
+				correct_leds();
+			}
+			else if (outcome == 2){
+				sprintf(string_to_send, "Pass!\r\n");
+				SerialOutputString(string_to_send, &USART1_PORT);
+				incorrect_leds();
+			}
+		}
+		sprintf(string_to_send, "Time's Up! Player %d's score is %d!\r\n", i, Pscore);
+		SerialOutputString(string_to_send, &USART1_PORT);
+		end_leds();
+		if (i == 1){
+			*P1score = Pscore;
+			sprintf(string_to_send, "Press to continue\r\n");
+			SerialOutputString(string_to_send, &USART1_PORT);
+			while ((GPIOA->IDR & 0x01) == 0) {}
+			set_timesUp();
+		}
+		else {
+			*P2score = Pscore;
+		}
+	}
 }

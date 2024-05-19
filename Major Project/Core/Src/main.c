@@ -42,8 +42,8 @@ int main(void)
 	uint8_t rounds = 1;
 	uint8_t winner;
 	uint8_t multiplier;
-	uint8_t P1leaderboard;
-	uint8_t P2leaderboard;
+	uint8_t P1leaderboard = 0;
+	uint8_t P2leaderboard = 0;
 
 	while (rounds <= 3) {
 		uint8_t P1score = 0;
@@ -84,6 +84,7 @@ int main(void)
 		SerialOutputString(string_to_send, &USART1_PORT);
 		sprintf(string_to_send, "Player 2 your total score is %d!\r\n", P2leaderboard);
 		SerialOutputString(string_to_send, &USART1_PORT);
+		delay(1500);
 
 		rounds++;
 	}
@@ -97,6 +98,8 @@ int main(void)
 		sprintf(string_to_send, "Player 2 Wins with a final score of %d!\r\n", P2leaderboard);
 		SerialOutputString(string_to_send, &USART1_PORT);
 	}
+
+
 
 	for(;;){};
 }

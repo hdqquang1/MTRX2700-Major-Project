@@ -47,6 +47,7 @@ int main(void)
 	uint8_t multiplier;
 	uint8_t P1leaderboard = 0;
 	uint8_t P2leaderboard = 0;
+	uint8_t prize;
 
 	while (rounds <= 3) {
 		uint8_t P1score = 0;
@@ -67,14 +68,12 @@ int main(void)
 			break;
 		}
 
-		// Multiplier
 		sprintf(string_to_send, "Player %d can play wavelength\r\n", winner);
 		SerialOutputString(string_to_send, &USART1_PORT);
-		while ((multiplier != 3) || (multiplier != 2) || (multiplier != 1) || (multiplier != 0.5)){
-			uint8_t buffer[8];
-			SerialInputString(buffer, 8, &UART4_PORT, '\r');
-			multiplier = atoi(buffer);
-		}
+		uint8_t buffer[16];
+		SerialInputString(buffer, 16, &UART4_PORT, '\r');
+		multiplier = atoi(buffer);
+
 		sprintf(string_to_send, "Wavelength result %d!\r\n", multiplier);
 		SerialOutputString(string_to_send, &USART1_PORT);
 
@@ -89,9 +88,9 @@ int main(void)
 		// Update leaderboard
 		P1leaderboard = P1leaderboard + P1score;
 		P2leaderboard = P2leaderboard + P2score;
-		sprintf(string_to_send, "Player 1's total score is %d!\r\n", P1leaderboard);
+		sprintf(string_to_send, "Player 1 your total score is %d!\r\n", P1leaderboard);
 		SerialOutputString(string_to_send, &USART1_PORT);
-		sprintf(string_to_send, "Player 2's total score is %d!\r\n", P2leaderboard);
+		sprintf(string_to_send, "Player 2 your total score is %d!\r\n", P2leaderboard);
 		SerialOutputString(string_to_send, &USART1_PORT);
 
 		delay(1500);
@@ -111,7 +110,7 @@ int main(void)
 	sprintf(string_to_send, "Winner can spin the wheel now!\r\n");
 	SerialOutputString(string_to_send, &USART1_PORT);
 
-	uint8_t prize = roulette();
+	roulette(&prize);
 
 	switch(prize) {
 	case 1:

@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-uint8_t roulette(void);
+void roulette(uint8_t *prize);
 
 #endif

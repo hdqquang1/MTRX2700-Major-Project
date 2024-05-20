@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -60,12 +60,12 @@ all: main-build
 main-build: Major\ Project.elf secondary-outputs
 
 dependents:
-	-cd C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Debug && $(MAKE) all
-	-cd C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/stm32f303-definitions/Debug && $(MAKE) clean all
+	-cd C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Debug && $(MAKE) all
+	-cd C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/stm32f303-definitions/Debug && $(MAKE) clean all
 
 # Tool invocations
-Major\ Project.elf Major\ Project.map: $(OBJS) $(USER_OBJS) C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Debug/libSTMF3disco-BSP.a C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/stm32f303-definitions/Debug/stm32f303-definitions C:\Users\omara\OneDrive\Desktop\2024\ S1\ Files\MTRX2700-Major-Project\Major\ Project\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Major Project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\omara\OneDrive\Desktop\2024 S1 Files\MTRX2700-Major-Project\Major Project\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Major Project.map" -Wl,--gc-sections -static -L"C:\Users\omara\OneDrive\Desktop\2024 S1 Files\MATRX2700 Assembly Examples\STMF3disco-BSP\Debug" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Major\ Project.elf Major\ Project.map: $(OBJS) $(USER_OBJS) C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Debug/libSTMF3disco-BSP.a C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/stm32f303-definitions/Debug/stm32f303-definitions C:\Users\quang\STM32CubeIDE\workspace_1.15.1\Major\ Project\STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Major Project.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\quang\STM32CubeIDE\workspace_1.15.1\Major Project\STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Major Project.map" -Wl,--gc-sections -static -L"C:\Users\quang\OneDrive - The University of Sydney (Students)\Year 2\Semester 1\MTRX2700\MTRX2700-2024\STMF3disco-BSP\Debug" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -94,7 +94,7 @@ warn-no-linker-script-specified:
 	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
 
 .PHONY: all clean dependents main-build fail-specified-linker-script-missing warn-no-linker-script-specified
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Debug/libSTMF3disco-BSP.a:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/stm32f303-definitions/Debug/stm32f303-definitions:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Debug/libSTMF3disco-BSP.a:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/stm32f303-definitions/Debug/stm32f303-definitions:
 
 -include ../makefile.targets

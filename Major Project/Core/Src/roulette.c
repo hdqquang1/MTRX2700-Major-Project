@@ -9,7 +9,7 @@
 #include "digital_io.h"
 #include "serial.h"
 
-uint8_t roulette(void){
+void roulette(uint8_t *prize){
 	while ((GPIOA->IDR & 0x01) == 0) {}
 	uint16_t delay_period = 25;
 
@@ -26,6 +26,7 @@ uint8_t roulette(void){
 	srand(seed);
 
 	uint8_t r = rand() % 8 + 1;
+	*prize = r;
 	sprintf(string_to_send, "Random number is %d\r\n", r);
 	SerialOutputString(string_to_send, &USART1_PORT);
 
@@ -36,6 +37,4 @@ uint8_t roulette(void){
 	}
 
 	set_leds(mask);
-
-	return r;
 }

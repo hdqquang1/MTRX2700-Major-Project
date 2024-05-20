@@ -22,9 +22,6 @@ void roulette(uint8_t *prize){
 
 	uint8_t string_to_send[64] = "This is a string !\r\n";
 
-	uint32_t seed = get_gyro_values(0)*20000;
-	srand(seed);
-
 	uint8_t r = rand() % 8 + 1;
 	*prize = r;
 	sprintf(string_to_send, "Random number is %d\r\n", r);

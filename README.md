@@ -262,6 +262,10 @@ _______________
 
 ## Limitations and Constraints:
 
+- Instead of using static variables, consider the use of structs. This will allow for better modularity and inter-use between all codes.
+- Although currently done in headsUp.c, make clearing memory more consistent throughout all files.
+- The random seed value generated is limited to the value of the gyroscope, which may result in inconsistent results if the board is moved in the same motion.
+- A few wires are soldered, which can cause for inconsistent performance whereby greater noise can exist. This may result in the serial communication not performing as precisely as it can.
 
 ## Acknowledgement:
 

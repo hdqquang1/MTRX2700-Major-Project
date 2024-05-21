@@ -159,14 +159,14 @@ void headsUp(uint8_t *P1score, uint8_t *P2score){
 			*P1score = Pscore;
 			sprintf(string_to_send, "Press to continue\r\n");
 			SerialOutputString(string_to_send, &USART1_PORT);
-			while ((get_button_state() & 0x01) == 0) {}
+			while ((get_button_state()) == 0) {}
 			set_timesUp();
 		}
 		else {
 			*P2score = Pscore;
 			sprintf(string_to_send, "Press to continue\r\n");
 			SerialOutputString(string_to_send, &USART1_PORT);
-			while ((get_button_state() & 0x01) == 0) {}
+			while ((get_button_state()) == 0) {}
 			set_timesUp();
 		}
 	}

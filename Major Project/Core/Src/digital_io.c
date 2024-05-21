@@ -11,7 +11,7 @@
 
 
 uint8_t get_button_state(void){
-	return GPIOA->IDR;
+	return GPIOA->IDR & 0x01;
 }
 
 

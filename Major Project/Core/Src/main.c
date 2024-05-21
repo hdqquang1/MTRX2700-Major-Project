@@ -48,10 +48,7 @@ int main(void)
 	//test_gyroscope();
 	//test_io_and_timer();
 
-
-
-
-	srand(get_gyro_values());
+	srand(get_gyro_values()*20000);
 
 	uint8_t rounds = 0;
 	uint8_t P1score;

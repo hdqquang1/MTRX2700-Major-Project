@@ -43,7 +43,7 @@ Each player’s score is then updated, in *P1score = Pscore and *P2score = Pscor
 |headsUp()|uint8_t *P1score, uint8_t *P2score|VOID|Heads Up game and updating the score of two players after the game|
 
 
-
+_______________________
 
 
 <ins> Wavelength <ins>
@@ -67,7 +67,7 @@ Detailed Design:
 - The score is then sent to another board using UART4 so that the score goes to the main game.
 
 
-
+_______________________
 
 <ins> Roulette Wheel <ins>
 
@@ -94,6 +94,7 @@ Detailed Design:
 |-------------|---------|-------|--------------------|
 |roulette()|uint8_t *prize|VOID|Spins the LEDs in a decelerating motion and stores the random prize value in string_to_send, which is then displayed using a bitmask.|
 
+_______________________
 
 <ins>Computer Interface<ins>
 

@@ -2,6 +2,29 @@
 # Major Project
 
 ## Role allocations:
+
+|Module|Sub-module|Contributions|
+|------------|------------------------|---------------|
+|Heads-up|Gyroscope|Omar, Dinh|
+||LEDs on board|Lucas|
+||Timers|Dinh|
+||USART1|Dinh, Omar|
+|Wavelength|Potentiometer|Lovedale|
+||Servo|Lovedale|
+||PWM|Lovedale|
+||UART4||Dinh, Omar|
+|Roulette Prize Wheel|Prize Allocation|Lucas|
+||Timers|Lucas|
+||Roulette Wheel LED|Lucas|
+|3D Print Design|Wavelength game|Lovedale|
+||STM32 Heads-up case|Lucas|
+|GUI|Heads up Display|Jayden|
+||Data Representation |Jayden|
+||Leaderboard|Jayden|
+
+
+
+
 - Omar Abdulahlim [530281373]
 - Dinh Quang Huynh [530128207]
 - Lucas Ma [520469505]
@@ -266,6 +289,7 @@ _______________
 - Although currently done in headsUp.c, make clearing memory more consistent throughout all files.
 - The random seed value generated is limited to the value of the gyroscope, which may result in inconsistent results if the board is moved in the same motion.
 - A few wires are soldered, which can cause for inconsistent performance whereby greater noise can exist. This may result in the serial communication not performing as precisely as it can.
+- A constraint is that two laptops are used, however simplify the process with one laptop would be better.
 
 ## Acknowledgement:
 

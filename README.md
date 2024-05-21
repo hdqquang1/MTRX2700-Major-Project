@@ -91,7 +91,27 @@ Detailed Design:
 |roulette()|uint8_t *prize|VOID|Spins the LEDs in a decelerating motion and stores the random prize value in string_to_send, which is then displayed using a bitmask.|
 
 
-## Instructions for the user:
+## Specific Modules:
+
+<ins>initialise.c<ins>
+
+|Function Call|Arguments|Returns|Function Description|
+|-------------|---------|-------|--------------------|
+|initialise_board()|VOID|VOID|Initialise all the necessary modules|
+
+
+<ins>digital_io.c<ins>
+  
+|Function Call|Arguments|Returns|Function Description|
+|-------------|---------|-------|--------------------|
+|set_leds()|uint8_t led_mask_pattern|VOID|Set LEDs pattern by binary number|
+|get_leds()|VOID|uint8_t led_state|Get LEDs current state|
+|correct_leds()|VOID|VOID|Turn on circle LEDs pattern for 1s|
+|incorrect_leds()|VOID|VOID|Turn on cross LEDs pattern for 1s|
+|end_leds()|VOID||VOID|Turn on circle LEDs pattern for 2s|
+|chase_leds()|VOID|VOID|Shift LED 1 by 1|
+
+
 
 ## Testing:
 

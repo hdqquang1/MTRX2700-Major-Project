@@ -91,6 +91,38 @@ Detailed Design:
 |roulette()|uint8_t *prize|VOID|Spins the LEDs in a decelerating motion and stores the random prize value in string_to_send, which is then displayed using a bitmask.|
 
 
+<ins>Computer Interface<ins>
+
+
+Requirement Specification:
+The objective of the computer interface is to allow for the user to see the front end of the task (heads up, leaderboard and timer) but also show some back end information/data that will be useful in understanding the movements of the system in a physical representation. 
+
+
+System Design: 
+As the game begins, the user will be greeted with a message and the game Heads Up will start, a word will need to be acted out by a user (player 2) and another player (player 1) will need to guess this word based on the act. Player 1 will flip the microcontroller down for correction and up to pass to the next word. This is all shown on the computer interface where the screen will light up green for correct and red for pass. Furthermore, the timer module used throughout the game will be shown where the amount of time left the player has is displayed. This has been done through python where the serial data from the microcontroller is being sent to the python program. 
+
+This computer interface involves several components working together however the main components are:
+- Serial Data Acquisition: This reads the incoming data from the serial port through the use of a separate thread to ensure the interface remains responsive.
+- Data Processing: The received data is processed to determine the data type, if it is sensor data, game messages, leaderboard values etc. 
+- GUI components: The interface is divided into four main sections: top left (status messages), top right (leaderboard), bottom left (timer), bottom right (microcontroller positioning)
+- Data Display and Visualisation: This displays the processed data into their appropriate sections of the interface. 
+
+
+Detailed Design: 
+
+|Function Name|Returns|Function Description|
+|-------------|-------|--------------------|
+|read_serial|None |Reads data from the serial, this will use regex to determine if the data is sensor data (gyro and acc) and process it accordingly/ A callback is used to update display, plot, leaderboard and timer based on data received. |
+|create_display|tinker root window, update_display_callback, update_plot_callback, update_leaderboard_callback|Creates a frame for the different sections of the computer interface.|
+|draw_prism|Prism object, Vertices array|Defines vertices, faces and edge colours of a rectangular prism. It will return the prism and the vertices array to be used. |
+|rotate_prism|None|Rotates the vertices of the prism based on the pitch and roll angles, it will update the position of the prism on the 3D axes. |
+|update_display|None|This updates the display of the heads up game, it will also change the colour of the background for messages like “Correct!” and “Pass!” |
+|update_plot|None|Updates the gyro and accelerometer plots based on data received. An exponential moving average is applied to the accelerometer data to smoothen the plot due to unwanted noise. |
+|update_leaderboard|None|Based on the data received, the score is updated to the leaderboard. |
+|periodic_update |None|This was used to keep the interface responsive, without this the 3D model will not run properly. |
+
+
+
 ## Specific Modules:
 
 <ins>initialise.c<ins>

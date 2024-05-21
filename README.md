@@ -175,4 +175,88 @@ Detailed Design:
 
 ## Testing:
 
+
+USART1: Testing that the serial stream to PuTTY works.
+
+```C
+initialise_board();
+
+uint8_t string_to_send[64] = "This is a string!\r\n";
+sprintf(string_to_send, "Testing USART1!\r\n");
+SerialOutputString(string_to_send, &USART1_PORT);
+
+```
+- The string “Testing USART1!” should be outputted to PuTTY.
+_______________
+
+UART4: Testing that the serial stream between boards works.
+
+Board Sending:
+initialise_board();
+
+
+uint8_t string_to_send[64] = "This is a string!\r\n";
+sprintf(string_to_send, "Testing UART4!\r\n");
+SerialOutputString(string_to_send, &UART4_PORT);
+
+Board Receiving: The string “Testing UART4!” should be in the buffer’s memory browser.
+```C
+initialise_board();
+
+
+uint8_t buffer[8];
+while (!buffer){
+	SerialInputString(buffer, 8, &UART4_PORT, '\r');
+}
+```
+
+_______________
+
+Gyroscopic Sensors: Testing that board xyz sensors work.
+
+```C
+initialise_board();
+uint8_t string_to_send[64] = "This is a string !\r\n";
+float gyro_values[3];
+
+
+/* Infinite loop */
+while (1){
+BSP_GYRO_GetXYZ(&gyro_values[0]);
+sprintf(string_to_send, "%0.3f,%0.3f,%0.3f,%0.3f,%0.3f,%0.3f\r\n",
+gyro_values[0]/20000, gyro_values[1]/20000, gyro_values[2]/20000);
+SerialOutputString(string_to_send, &USART1_PORT);
+}
+```
+_______________
+Timers: Testing that the timer is accurate. 
+```C
+
+void set_timesUp(){
+   if (timesUp == 0) {
+       timesUp = 1;
+   }
+   else {
+       timesUp = 0;
+   }
+}
+
+
+uint8_t timesUp = 0;
+game_timer(10000, &set_timesUp);
+while (timesUp == 0){
+	uint8_t string_to_send[64] = "This is a string!\r\n";
+sprintf(string_to_send, "Testing Timer!\r\n");
+SerialOutputString(string_to_send, &UART4_PORT);
+delay(1000);
+}
+```
+PuTTY should output "Testing Timer!" 10 times to screen.
+
+_______________
+
+
+
+
+
 ## Limitations and Constraints:

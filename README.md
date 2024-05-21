@@ -261,3 +261,15 @@ _______________
 
 
 ## Limitations and Constraints:
+
+
+## Acknowledgement:
+
+[MTRX2700 Lecture examples, adapted from Stewart Worrall] (https://github.com/stewart-worrall/MTRX2700-2024)
+
+[STM32F303-specific-datasheet.pdf] (https://canvas.sydney.edu.au/courses/55768/files/34751258?wrap=1)
+
+[STM32F3-Reference-Manual-large.pdf] (https://canvas.sydney.edu.au/courses/55768/files/34751264?wrap=1)
+
+
+

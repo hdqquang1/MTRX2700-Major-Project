@@ -28,17 +28,26 @@
 #include "initialise.h"
 #include "headsUp.h"
 #include "roulette.h"
+#include "testing.h"
 /* USER CODE END Includes */
 
 /**
   * @brief  The application entry point.
   * @retval int
   */
+
+#define BUFFER_SIZE 100
+
 int main(void)
 {
 	initialise_board();
 
-	uint8_t string_to_send[64] = "This is a string!\r\n";
+	test_USART1();
+	//test_UART4();
+	//test_gyroscope();
+	//test_io_and_timer();
+
+	uint8_t buffer[BUFFER_SIZE];
 
 	srand(get_gyro_values());
 
@@ -68,6 +77,7 @@ int main(void)
 			break;
 		}
 
+<<<<<<< HEAD
 		sprintf(string_to_send, "Player %d can play wavelength\r\n", winner);
 		SerialOutputString(string_to_send, &USART1_PORT);
 		delay(750);
@@ -78,12 +88,16 @@ int main(void)
 		sprintf(string_to_send, "%s\r\n", (char*)guessTopic);
 		SerialOutputString(string_to_send, &USART1_PORT);
 
+=======
+		sprintf(buffer, "Player %d can play wavelength\r\n", winner);
+		SerialOutputString(buffer, &USART1_PORT);
+>>>>>>> 41902439f3a1764d02f9db274cc74e69077ba730
 		uint8_t buffer[16];
 		SerialInputString(buffer, 16, &UART4_PORT, '\r');
 		multiplier = atoi(buffer);
 
-		sprintf(string_to_send, "Wavelength result %d!\r\n", multiplier);
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "Wavelength result %d!\r\n", multiplier);
+		SerialOutputString(buffer, &USART1_PORT);
 
 		// Wavelength multiplier
 		if (winner == 1){
@@ -96,10 +110,10 @@ int main(void)
 		// Update leaderboard
 		P1leaderboard = P1leaderboard + P1score;
 		P2leaderboard = P2leaderboard + P2score;
-		sprintf(string_to_send, "Player 1 your total score is %d!\r\n", P1leaderboard);
-		SerialOutputString(string_to_send, &USART1_PORT);
-		sprintf(string_to_send, "Player 2 your total score is %d!\r\n", P2leaderboard);
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "Player 1 your total score is %d!\r\n", P1leaderboard);
+		SerialOutputString(buffer, &USART1_PORT);
+		sprintf(buffer, "Player 2 your total score is %d!\r\n", P2leaderboard);
+		SerialOutputString(buffer, &USART1_PORT);
 
 		delay(1500);
 
@@ -108,54 +122,60 @@ int main(void)
 
 	// Final winner announced
 	if (P1leaderboard > P2leaderboard){
-		sprintf(string_to_send, "Player 1 Wins with a final score of %d!\r\n", P1leaderboard);
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "Player 1 Wins with a final score of %d!\r\n", P1leaderboard);
+		SerialOutputString(buffer, &USART1_PORT);
 	}
 	else if (P2leaderboard > P1leaderboard){
-		sprintf(string_to_send, "Player 2 Wins with a final score of %d!\r\n", P2leaderboard);
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "Player 2 Wins with a final score of %d!\r\n", P2leaderboard);
+		SerialOutputString(buffer, &USART1_PORT);
 	}
+<<<<<<< HEAD
 	delay(1500);
 
 	sprintf(string_to_send, "Winner can spin the wheel now!\r\n");
 	SerialOutputString(string_to_send, &USART1_PORT);
+=======
+	sprintf(buffer, "Winner can spin the wheel now!\r\n");
+	SerialOutputString(buffer, &USART1_PORT);
+>>>>>>> 41902439f3a1764d02f9db274cc74e69077ba730
 
 	roulette(&prize);
 
 	switch(prize) {
 	case 1:
-		sprintf(string_to_send, "You won a deluxe pen!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won a deluxe pen!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	case 2:
-		sprintf(string_to_send, "You won an exclusive notebook!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won an exclusive notebook!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	case 3:
-		sprintf(string_to_send, "You won a high accuracy ruler!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won a high accuracy ruler!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	case 4:
-		sprintf(string_to_send, "You won a world class hydration container!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won a world class hydration container!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	case 5:
-		sprintf(string_to_send, "You won an exclusive rubber band!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won an exclusive rubber band!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	case 6:
-		sprintf(string_to_send, "You won an exclusive rubber band!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won an exclusive signature from Omar!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	case 7:
-		sprintf(string_to_send, "You won a luxurious charger!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won a luxurious charger!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	case 8:
-		sprintf(string_to_send, "You won a high precision pencil sharpener!\r\n");
-		SerialOutputString(string_to_send, &USART1_PORT);
+		sprintf(buffer, "You won a high precision pencil sharpener!\r\n");
+		SerialOutputString(buffer, &USART1_PORT);
 		break;
 	}
+
 
 	for(;;){};
 

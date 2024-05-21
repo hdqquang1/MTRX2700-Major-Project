@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ../Core/Src/main.c:37:5:main	136	static
+=======
+../Core/Src/main.c:41:5:main	136	static
+>>>>>>> 41902439f3a1764d02f9db274cc74e69077ba730

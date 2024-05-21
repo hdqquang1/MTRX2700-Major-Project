@@ -1,0 +1,5 @@
+../Core/Src/testing.c:17:6:test_USART1	1
+../Core/Src/testing.c:28:6:test_UART4	1
+../Core/Src/testing.c:37:6:test_gyroscope	1
+../Core/Src/testing.c:51:6:test_led_pattern	2
+../Core/Src/testing.c:60:6:test_io_and_timer	2

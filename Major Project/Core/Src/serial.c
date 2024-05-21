@@ -70,8 +70,8 @@ SerialPort UART4_PORT = {&(UART4->BRR),
 		((uint8_t*)&(GPIOC->AFR[1])) + 1,
 		0x55};
 
-// InitialiseSerial - Initialise the serial port
-// Input: baudRate is from an enumerated set
+// SerialInitialise - Initialise the serial port
+// Input: baud rate as defined in the enum
 void SerialInitialise(uint32_t baudRate, SerialPort *serial_port, void (*completion_function)(uint32_t)) {
 
 	serial_port->completion_function = completion_function;
@@ -135,7 +135,8 @@ void SerialOutputChar(uint8_t data, SerialPort *serial_port) {
 }
 
 
-
+// SerialOutputString - output a NULL TERMINATED string to the serial port
+// Input: pointer to a NULL-TERMINATED string (if not null terminated, there will be problems)
 void SerialOutputString(uint8_t *pt, SerialPort *serial_port) {
 
 	uint32_t counter = 0;
@@ -164,7 +165,10 @@ uint8_t SerialInputChar(SerialPort *serial_port)
 	return character;
 }
 
-uint8_t* SerialInputString(uint8_t* buffer, uint32_t buffer_size, SerialPort *serial_port, uint8_t termination_char)
+
+// SerialInputString - input a string from the serial port
+// Input: buffer to store string, buffer size, termination character
+uint8_t* SerialInputString(uint8_t *buffer, uint32_t buffer_size, SerialPort *serial_port, uint8_t termination_char)
 {
 	//characters are only read until the buffer is full or a termination char is sent
 	uint32_t counter = 0;

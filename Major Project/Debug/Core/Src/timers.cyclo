@@ -1,6 +1,6 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
 ../Drivers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	2
-../Core/Src/timers.c:12:6:enable_interrupt	1
-../Core/Src/timers.c:25:6:TIM2_IRQHandler	3
-../Core/Src/timers.c:40:6:game_timer	1
-../Core/Src/timers.c:77:6:delay	2
+../Core/Src/timers.c:14:6:enable_interrupt	1
+../Core/Src/timers.c:28:6:TIM2_IRQHandler	3
+../Core/Src/timers.c:44:6:game_timer	1
+../Core/Src/timers.c:82:6:delay	2

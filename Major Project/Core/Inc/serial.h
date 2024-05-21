@@ -16,7 +16,7 @@ extern SerialPort USART1_PORT;
 extern SerialPort UART4_PORT;
 
 
-// The user might want to select the baud rate
+// Baud rate
 enum {
   BAUD_9600,
   BAUD_19200,
@@ -35,7 +35,8 @@ void SerialInitialise(uint32_t baudRate, SerialPort *serial_port, void (*complet
 // Input: pointer to a NULL-TERMINATED string (if not null terminated, there will be problems)
 void SerialOutputString(uint8_t *pt, SerialPort *serial_port);
 
-
+// SerialInputString - input a string from the serial port
+// Input: buffer to store string, buffer size, termination character
 uint8_t* SerialInputString(uint8_t* buffer, uint32_t buffer_size, SerialPort *serial_port, uint8_t termination_char);
 
 #endif

@@ -1,4 +1,5 @@
-Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
+Core/Src/testing.o: ../Core/Src/testing.c ../Core/Inc/testing.h \
+ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h \
  ../Core/Inc/stm32f3xx_hal_conf.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h \
@@ -30,19 +31,16 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h \
- ../Core/Inc/initialise.h ../Core/Inc/headsUp.h ../Core/Inc/digital_io.h \
- ../Core/Inc/gyroscope.h \
- C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h \
- C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Inc/BSP/stm32f3_discovery_gyroscope.h \
- C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h \
- C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/l3gd20/l3gd20.h \
- C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/l3gd20/../Common/gyro.h \
- C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/i3g4250d/i3g4250d.h \
- C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/i3g4250d/../Common/gyro.h \
- ../Core/Inc/serial.h \
- ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h \
- ../Core/Inc/timers.h ../Core/Inc/roulette.h ../Core/Inc/testing.h
-../Core/Inc/main.h:
+ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Inc/BSP/stm32f3_discovery_gyroscope.h \
+ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h \
+ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/l3gd20/l3gd20.h \
+ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/l3gd20/../Common/gyro.h \
+ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/i3g4250d/i3g4250d.h \
+ C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/i3g4250d/../Common/gyro.h \
+ ../Core/Inc/digital_io.h ../Core/Inc/serial.h ../Core/Inc/timers.h \
+ ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h
+../Core/Inc/testing.h:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:
@@ -74,19 +72,13 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_spi_ex.h:
-../Core/Inc/initialise.h:
-../Core/Inc/headsUp.h:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Inc/BSP/stm32f3_discovery_gyroscope.h:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/l3gd20/l3gd20.h:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/l3gd20/../Common/gyro.h:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/i3g4250d/i3g4250d.h:
+C:/Users/quang/OneDrive\ -\ The\ University\ of\ Sydney\ (Students)/Year\ 2/Semester\ 1/MTRX2700/MTRX2700-2024/STMF3disco-BSP/Src/i3g4250d/../Common/gyro.h:
 ../Core/Inc/digital_io.h:
-../Core/Inc/gyroscope.h:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Inc/BSP/stm32f3_discovery_gyroscope.h:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Inc/BSP/stm32f3_discovery.h:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/l3gd20/l3gd20.h:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/l3gd20/../Common/gyro.h:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/i3g4250d/i3g4250d.h:
-C:/Users/omara/OneDrive/Desktop/2024\ S1\ Files/MATRX2700\ Assembly\ Examples/STMF3disco-BSP/Src/i3g4250d/../Common/gyro.h:
 ../Core/Inc/serial.h:
-../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h:
 ../Core/Inc/timers.h:
-../Core/Inc/roulette.h:
-../Core/Inc/testing.h:
+../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h:

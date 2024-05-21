@@ -19,6 +19,7 @@ static void MX_I2C1_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USB_PCD_Init(void);
 
+// initialise_board() - Initialise all necessary modules
 void initialise_board() {
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -35,16 +36,21 @@ void initialise_board() {
   MX_SPI1_Init();
   MX_USB_PCD_Init();
   
+  // Initialise gyroscope
   BSP_GYRO_Init();
 
+  // Enable GPIOA, GPIOC, and GPIOE
   RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_GPIOCEN | RCC_AHBENR_GPIOEEN;
 
+  // Enable TIM2 and TIM3
   RCC->APB1ENR |=  RCC_APB1ENR_TIM2EN;
   RCC->APB1ENR |=  RCC_APB1ENR_TIM3EN;
 
+  // Initialise USART1 and UART4
   SerialInitialise(BAUD_115200, &USART1_PORT, 0x00);
   SerialInitialise(BAUD_115200, &UART4_PORT, 0x00);
 
+  // Initialise LEDs
   uint16_t *led_output_registers = ((uint16_t *)&(GPIOE->MODER)) + 1;
   *led_output_registers = 0x5555;
 }

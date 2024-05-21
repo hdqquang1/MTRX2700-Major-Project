@@ -1,6 +1,7 @@
-../Core/Src/digital_io.c:14:6:set_leds	1
-../Core/Src/digital_io.c:24:9:get_leds	1
-../Core/Src/digital_io.c:29:6:correct_leds	1
-../Core/Src/digital_io.c:40:6:incorrect_leds	1
-../Core/Src/digital_io.c:51:6:end_leds	1
-../Core/Src/digital_io.c:62:6:chase_leds	2
+../Core/Src/digital_io.c:13:9:get_button_state	1
+../Core/Src/digital_io.c:19:6:set_leds	1
+../Core/Src/digital_io.c:32:9:get_leds	1
+../Core/Src/digital_io.c:39:6:correct_leds	1
+../Core/Src/digital_io.c:52:6:incorrect_leds	1
+../Core/Src/digital_io.c:65:6:end_leds	1
+../Core/Src/digital_io.c:78:6:chase_leds	2

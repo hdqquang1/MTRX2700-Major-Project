@@ -33,7 +33,7 @@
 
 ## System Block Diagram:
 
-![Alt text](https://github.com/hdqquang1/MTRX2700-Major-Project/issues/9#issue-2307265908)
+![screenshot](https://github.com/hdqquang1/MTRX2700-Major-Project/issues/9#issue-2307265908)
 
 
 ## Modules:

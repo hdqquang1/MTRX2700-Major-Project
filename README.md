@@ -8,6 +8,12 @@
 - Jayden Wu [530518040]
 - Lovedale Njaravaza [530360623]
 
+## System Block Diagram:
+
+
+
+
+
 ## Modules:
 
 <ins> Heads Up <ins>

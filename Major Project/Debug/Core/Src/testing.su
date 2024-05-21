@@ -2,4 +2,4 @@
 ../Core/Src/testing.c:28:6:test_UART4	216	static
 ../Core/Src/testing.c:37:6:test_gyroscope	152	static
 ../Core/Src/testing.c:51:6:test_led_pattern	8	static
-../Core/Src/testing.c:60:6:test_io_and_timer	8	static
+../Core/Src/testing.c:61:6:test_io_and_timer	8	static

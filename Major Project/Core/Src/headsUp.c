@@ -57,6 +57,40 @@ char* randomWord() {
     return words[wordsCount - 1]; // Return the last added word
 }
 
+
+#define NUM_TOPICS 9 // Total number of topics in the array
+
+char* randomTopic() {
+    static char* topics[NUM_TOPICS]; // Static array to store words
+    static int usedIndices[NUM_TOPICS] = {0}; // Static array to track used indices
+    static int topicCount = 0; // Count of words added to the array
+
+    // Check if all words have been used, reset if needed
+    if (topicCount == NUM_TOPICS) {
+    	topicCount = 0;
+        memset(usedIndices, 0, sizeof(usedIndices));
+    }
+
+	char *allTopics[] = {
+	        "<-Normal pet  Exotic pet->", "<-Useless body part  Useful body part->", "<-Person you could beat up  Person who'd beat you up->",
+			"<-Bad pizza topping  Good pizza topping->", "<-Useless major  Useful major->", "<-Worst living person  Greatest living person->",
+			"<-Boring hobby  Interesting hobby->", "<-Unsexy emoji  sexy emoji->", "<-Good subject  Bad subject->"
+	};
+
+    int numTopics = sizeof(allTopics) / sizeof(allTopics[0]); // Calculate the number of words in the array
+
+    int randomIndex;
+    do {
+        randomIndex = rand() % numTopics; // Generate a random index within the bounds of the array
+    } while (usedIndices[randomIndex]); // Check if the word at this index has been used
+
+    usedIndices[randomIndex] = 1; // Mark this index as used
+    topics[topicCount++] = allTopics[randomIndex]; // Add the word to the array
+
+    return topics[topicCount - 1]; // Return the last added word
+}
+
+
 uint8_t timesUp = 0;
 
 void set_timesUp(){

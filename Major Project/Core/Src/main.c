@@ -42,7 +42,7 @@ int main(void)
 {
 	initialise_board();
 
-	test_USART1();
+	//test_USART1();
 	//test_UART4();
 	//test_gyroscope();
 	//test_io_and_timer();
@@ -79,6 +79,13 @@ int main(void)
 
 		sprintf(buffer, "Player %d can play wavelength\r\n", winner);
 		SerialOutputString(buffer, &USART1_PORT);
+
+		uint8_t guessTopic[20];
+		char* random = randomTopic();
+		strcpy((char*)guessTopic, random);
+		sprintf(buffer, "%s\r\n", (char*)guessTopic);
+		SerialOutputString(buffer, &USART1_PORT);
+
 		uint8_t buffer[16];
 		SerialInputString(buffer, 16, &UART4_PORT, '\r');
 		multiplier = atoi(buffer);

@@ -14,6 +14,7 @@ uint8_t get_button_state(void){
 	return GPIOA->IDR;
 }
 
+
 // set_leds - Set LEDs pattern by binary number
 // Input: binary led mask pattern
 void set_leds(uint8_t led_mask_pattern)

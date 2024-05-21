@@ -57,10 +57,11 @@ void test_led_pattern(void){
 	}
 }
 
+
 void test_io_and_timer(void){
 	while (1){
 		while((get_button_state() & 0x01) == 0){}
 		game_timer(1000, &test_led_pattern);
-		delay(1000);
+		delay(2000);
 	}
 }

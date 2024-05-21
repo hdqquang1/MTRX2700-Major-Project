@@ -31,6 +31,14 @@ Detailed Design:
 - The score is updated in outcome, which is then sent through to SerialOutputString to display, and the LEDs for the correct or incorrect guess is displayed in its respective pattern.
 Each player’s score is then updated, in *P1score = Pscore and *P2score = Pscore.
 
+|Function Call|Arguments|Returns|Function Description|
+|-------------|---------|-------|--------------------|
+|randomWord()|VOID|char *words| Return an array of random words from a bigger predefined pool|
+|headsUp()|uint8_t *P1score, uint8_t *P2score|VOID|Heads Up game and updating the score of two players after the game|
+
+
+
+
 
 <ins> Wavelength <ins>
 
@@ -52,6 +60,8 @@ Detailed Design:
 - The score is then sent to another board using UART4 so that the score goes to the main game.
 
 
+
+
 <ins> Roulette Wheel <ins>
 
 
@@ -71,6 +81,11 @@ Detailed Design:
 - The code loops and waits until the button connected to pin 0 of GPIOA is pressed. Then it will loop around the LED wheel five times, lighting all eight LEDs in each loop, one by one. A deceleration effect is triggered by the delay function which slows the following LED down by delay_period of 25 millisecond.
 - A buffer called string_to_send is created, which will store the value of ‘r’. This is the variable that stores the random gyro seed value, which is initialised in main.c in srand(get_gyro_values()). A pointer called prize corresponds to the variable r, so that the function calls immediately to that section of the code for better optimisation. 
 - The string_to_send is then passed through the function SerialOutputString, and displayed on the computer screen. Using a bitmask, the chosen random prize LED is displayed with the function set_leds(mask).
+
+|Function Call|Arguments|Returns|Function Description|
+|-------------|---------|-------|--------------------|
+|roulette()|uint8_t *prize|VOID|Spins the LEDs in a decelerating motion and stores the random prize value in string_to_send, which is then displayed using a bitmask.|
+
 
 ## Instructions for the user:
 

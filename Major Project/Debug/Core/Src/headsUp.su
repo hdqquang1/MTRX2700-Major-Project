@@ -1,3 +1,4 @@
 ../Core/Src/headsUp.c:15:7:randomWord	440	static
-../Core/Src/headsUp.c:62:6:set_timesUp	4	static
-../Core/Src/headsUp.c:71:6:headsUp	120	static
+../Core/Src/headsUp.c:63:7:randomTopic	64	static
+../Core/Src/headsUp.c:96:6:set_timesUp	4	static
+../Core/Src/headsUp.c:105:6:headsUp	120	static

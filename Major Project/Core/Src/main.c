@@ -70,6 +70,14 @@ int main(void)
 
 		sprintf(string_to_send, "Player %d can play wavelength\r\n", winner);
 		SerialOutputString(string_to_send, &USART1_PORT);
+		delay(750);
+
+		uint8_t guessTopic[20];
+		char* random = randomTopic();
+		strcpy((char*)guessTopic, random);
+		sprintf(string_to_send, "%s\r\n", (char*)guessTopic);
+		SerialOutputString(string_to_send, &USART1_PORT);
+
 		uint8_t buffer[16];
 		SerialInputString(buffer, 16, &UART4_PORT, '\r');
 		multiplier = atoi(buffer);
@@ -107,6 +115,8 @@ int main(void)
 		sprintf(string_to_send, "Player 2 Wins with a final score of %d!\r\n", P2leaderboard);
 		SerialOutputString(string_to_send, &USART1_PORT);
 	}
+	delay(1500);
+
 	sprintf(string_to_send, "Winner can spin the wheel now!\r\n");
 	SerialOutputString(string_to_send, &USART1_PORT);
 

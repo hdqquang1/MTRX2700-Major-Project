@@ -192,13 +192,14 @@ _______________
 UART4: Testing that the serial stream between boards works.
 
 Board Sending:
+```C
 initialise_board();
 
 
 uint8_t string_to_send[64] = "This is a string!\r\n";
 sprintf(string_to_send, "Testing UART4!\r\n");
 SerialOutputString(string_to_send, &UART4_PORT);
-
+```
 Board Receiving: The string “Testing UART4!” should be in the buffer’s memory browser.
 ```C
 initialise_board();

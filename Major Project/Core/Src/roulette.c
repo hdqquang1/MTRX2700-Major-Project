@@ -24,8 +24,6 @@ void roulette(uint8_t *prize){
 
 	uint8_t r = rand() % 8 + 1;
 	*prize = r;
-	sprintf(string_to_send, "Random number is %d\r\n", r);
-	SerialOutputString(string_to_send, &USART1_PORT);
 
 	uint8_t mask = 0;
 	// Turn on the random number of LEDs

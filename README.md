@@ -143,9 +143,13 @@ Detailed Design:
 |end_leds()|VOID||VOID|Turn on circle LEDs pattern for 2s|
 |chase_leds()|VOID|VOID|Shift LED 1 by 1|
 
+<ins>gyroscope.c<ins>
+
 |Function Call|Arguments|Returns|Function Description|
 |-------------|---------|-------|--------------------|
 |get_gyro_values|VOID|float pitch_gyro_value|Get pitch gyroscope value|
+
+<ins>serial.c<ins>
 
 |Function Call|Arguments|Returns|Function Description|
 |-------------|---------|-------|--------------------|
@@ -153,13 +157,12 @@ Detailed Design:
 |SerialOutputString|uint8_t *string|VOID|Output a null terminated string to the serial port|
 |SerialInputString|uint8_t *buffer, uint32_t buffer_size, SerialPort *serial_port, uint8_t terminatioin_char|uint8_t *string|Input a string from the serial port|
 
+<ins>timer.c<ins>
+
 |Function Call|Arguments|Returns|Function Description|
 |-------------|---------|-------|--------------------|
 |game_timer()|uint16_t time, void (*callback_function)|VOID|Timing each round of the game using interrupt, the input time is in millisecond|
 |delay()|uint16_t delay|VOID|Delay for a period of time using polling method, the input time is in millisecond|
-
-
-
 
 
 

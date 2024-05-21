@@ -12,7 +12,7 @@
 |Wavelength|Potentiometer|Lovedale|
 ||Servo|Lovedale|
 ||PWM|Lovedale|
-||UART4||Dinh, Omar|
+||UART4|Dinh, Omar|
 |Roulette Prize Wheel|Prize Allocation|Lucas|
 ||Timers|Lucas|
 ||Roulette Wheel LED|Lucas|

@@ -11,7 +11,7 @@
 ## System Block Diagram:
 
 
-
+https://github.com/hdqquang1/MTRX2700-Major-Project/issues/6#issue-2307059418
 
 
 ## Modules:

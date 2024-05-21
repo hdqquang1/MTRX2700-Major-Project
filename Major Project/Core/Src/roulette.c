@@ -1,5 +1,6 @@
 #include "roulette.h"
 
+#include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
@@ -8,9 +9,10 @@
 
 #include "digital_io.h"
 #include "serial.h"
+#include "timers.h"
 
 void roulette(uint8_t *prize){
-	while ((GPIOA->IDR & 0x01) == 0) {}
+	while ((get_button_state() & 0x01) == 0) {}
 	uint16_t delay_period = 25;
 
 	for (uint8_t i = 1; i < 6; i++) {

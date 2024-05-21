@@ -6,8 +6,10 @@
 
 #define PRESCALER 47999
 
+
 // pointers to callback functions
 void (*TIM2_callback_function)();
+
 
 void enable_interrupt(IRQn_Type IRQn, uint32_t priority) {
 	// Disable the interrupts while messing around with the settings
@@ -21,6 +23,7 @@ void enable_interrupt(IRQn_Type IRQn, uint32_t priority) {
 	// Re-enable all interrupts (now that we are finished)
 	__enable_irq();
 }
+
 
 void TIM2_IRQHandler(){
 // run the oneshot timer interrupt handler
@@ -36,6 +39,7 @@ void TIM2_IRQHandler(){
 	}
 
 }
+
 
 void game_timer(uint16_t time, void (*callback_function)()) {
 
@@ -74,7 +78,8 @@ void game_timer(uint16_t time, void (*callback_function)()) {
 
 }
 
-void delay(uint16_t delay){
+
+void delay(uint16_t delay_period){
 	// reset CR1
 	TIM3->CR1 = 0x00;
 	TIM3->CNT = 0;
@@ -88,7 +93,7 @@ void delay(uint16_t delay){
 	// enable counter
 	TIM3->CR1 |= TIM_CR1_CEN;
 
-	while (TIM3->CNT < delay) {};
+	while (TIM3->CNT < delay_period) {};
 
 	// disable counter
 	TIM3->CR1 &= ~TIM_CR1_CEN;

@@ -6,8 +6,8 @@
 #include "BSP/stm32f3_discovery.h"
 #include "BSP/stm32f3_discovery_gyroscope.h"
 
-// get necessary gyroscope's value for Heads Up
-// input: void
+// get_gyro_values - Get pitch gyroscope value
+// Returns pitch gyroscope value in degree
 float get_gyro_values(void);
 
 #endif

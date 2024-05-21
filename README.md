@@ -33,7 +33,7 @@
 
 ## System Block Diagram:
 
-![Uploading Screenshot 2024-05-21 at 11.09.17 am.png…]()
+![Alt text](<img width="335" alt="Screenshot 2024-05-21 at 11 09 17 am" src="https://github.com/hdqquang1/MTRX2700-Major-Project/assets/160550731/142e6c0b-edb5-4cef-9219-1b1078347925">)
 
 
 ## Modules:

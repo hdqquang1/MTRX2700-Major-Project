@@ -21,6 +21,7 @@
 |GUI|Heads up Display|Jayden|
 ||Data Representation |Jayden|
 ||Leaderboard|Jayden|
+||Timer Display| Jayden|
 
 
 

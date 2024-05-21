@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+../Core/Src/roulette.c:12:6:roulette	96	static
+=======
 ../Core/Src/roulette.c:14:6:roulette	96	static
+>>>>>>> 41902439f3a1764d02f9db274cc74e69077ba730
